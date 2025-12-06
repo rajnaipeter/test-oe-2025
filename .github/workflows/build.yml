@@ -1,0 +1,20 @@
+name: C/C++ GCC Build
+
+on: [push, pull_request] # Triggers the workflow on push or pull request events
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4 # Action to clone your repository code
+
+    - name: Verify GCC Version
+      run: g++ --version # Optional: check which version of GCC is being used
+
+    - name: Compile C++ project
+      run: g++ /src/hello.cpp -o my_app # Replace with your specific source files and desired output name
+
+    - name: Run the compiled application
+      run: ./my_app # Executes the compiled program
